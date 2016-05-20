@@ -18,7 +18,7 @@ def create_dnsdict(dnslist):
     record_type_list = line[1].split()
     record_status = line[3]
     if len(record_type_list) > 0:
-      if record_type_list[0] == 'Host' or record_type_list[0] == 'Alias' and record_status == 'static':
+      if record_type_list[0] == 'Host' and record_status == 'static' or record_type_list[0] == 'Alias':
         record_type = record_type_list[1].strip("()") 
         hostname = line[0]
         ip = line[2]
