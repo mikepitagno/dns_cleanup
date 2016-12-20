@@ -12,6 +12,7 @@ import yaml
 
 def create_dnsdict(dnslist):
     """Generate dictionary of static DNS hosts including hostname, IP and record type; function includes logic to ignore any dynamic records and any non-'A' or non-'CNAME' records"""
+    
     dnsdict = {}
     for line in dnslist:
         record_type_list = line[1].split()
@@ -53,6 +54,7 @@ def create_dnsdictdown(dnsdictstatus):
 
 def dump_to_yaml(dnsdictdown):
     """Dump 'DOWN' dictionary to YAML file"""
+    
     with open("DNS_down_list.yaml", "w") as f:
         f.write(yaml.dump(dnsdictdown))
     f.close()
